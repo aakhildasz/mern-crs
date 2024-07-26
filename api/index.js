@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 
 import dotenv from "dotenv";
 import userRouter from "./routes/user.routes.js";
+import authRouter from "./routes/auth.routes.js";
 dotenv.config();
 
 mongoose
@@ -17,8 +18,12 @@ mongoose
 const app = express();
 const port = 7000;
 
+// By default we are not allowed to send any JSON to the server so to allow use the below
+app.use(express.json());
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}/`);
 });
 
 app.use("/api/user", userRouter);
+app.use("/api/auth", authRouter);
