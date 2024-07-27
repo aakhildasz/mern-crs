@@ -22,7 +22,6 @@ export default function SignIn() {
       [e.target.id]: e.target.value,
     });
   };
-  console.log(formData);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -70,6 +69,7 @@ export default function SignIn() {
         <button
           disabled={loading}
           className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80 transition duration-500 ease-in-out cursor-pointer"
+          style={loading ? { cursor: "progress" } : { cursor: "pointer" }}
         >
           {loading ? "Loading" : "Sign In"}
         </button>
