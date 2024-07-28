@@ -74,7 +74,7 @@ export default function SignIn() {
         >
           {loading ? "Loading" : "Sign In"}
         </button>
-        <OAuth />
+        <OAuth disabled={loading} />
       </form>
       <div className="flex gap-2 mt-5">
         <p>New Here?</p>
