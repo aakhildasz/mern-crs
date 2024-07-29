@@ -36,6 +36,7 @@ export default function SignIn() {
         },
         body: JSON.stringify(formData),
       });
+      
       const data = await res.json();
 
       if (data.success == false) {
@@ -74,7 +75,10 @@ export default function SignIn() {
         >
           {loading ? "Loading" : "Sign In"}
         </button>
-        <OAuth disabled={loading} />
+        <OAuth
+          disabled={loading}
+          style={loading ? { cursor: "progress" } : { cursor: "pointer" }}
+        />
       </form>
       <div className="flex gap-2 mt-5">
         <p>New Here?</p>
